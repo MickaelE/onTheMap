@@ -13,6 +13,7 @@
 		25AEB3B91B70F234004DE172 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3B81B70F234004DE172 /* Images.xcassets */; };
 		25AEB3BC1B70F234004DE172 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3BA1B70F234004DE172 /* LaunchScreen.xib */; };
 		25AEB3C81B70F235004DE172 /* onTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3C71B70F235004DE172 /* onTheMapTests.swift */; };
+		25C08A4F1B71F20200C39050 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C08A4E1B71F20200C39050 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		25AEB3C11B70F235004DE172 /* onTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = onTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AEB3C61B70F235004DE172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AEB3C71B70F235004DE172 /* onTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onTheMapTests.swift; sourceTree = "<group>"; };
+		25C08A4E1B71F20200C39050 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C08A4F1B71F20200C39050 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		25AEB3A31B70F234004DE172 = {
 			isa = PBXGroup;
 			children = (
+				25C08A4E1B71F20200C39050 /* MapKit.framework */,
 				25AEB3AE1B70F234004DE172 /* onTheMap */,
 				25AEB3C41B70F235004DE172 /* onTheMapTests */,
 				25AEB3AD1B70F234004DE172 /* Products */,
@@ -409,6 +413,7 @@
 				25AEB3CD1B70F235004DE172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25AEB3CE1B70F235004DE172 /* Build configuration list for PBXNativeTarget "onTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				25AEB3D01B70F235004DE172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
