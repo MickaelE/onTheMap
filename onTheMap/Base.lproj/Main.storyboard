@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,7 +16,125 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udaticty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzb-y2-fWw">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-an-YKV">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sfx-HP-0w9">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYo-De-UZm">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spn-b9-k51">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Don't have an account? Sign up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-XQ-rEq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.27615102969999999" green="0.52410322590000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign in with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.52475617736028246" blue="0.15986039442582367" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uzb-y2-fWw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="119" id="0YQ-WC-uOg"/>
+                            <constraint firstItem="U1o-an-YKV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="0cZ-xo-seJ"/>
+                            <constraint firstAttribute="bottom" secondItem="bsh-XQ-rEq" secondAttribute="bottom" constant="20" symbolic="YES" id="15H-pL-GkF"/>
+                            <constraint firstItem="Sfx-HP-0w9" firstAttribute="trailing" secondItem="U1o-an-YKV" secondAttribute="trailing" id="7Lj-vP-piT"/>
+                            <constraint firstItem="bsh-XQ-rEq" firstAttribute="leading" secondItem="spn-b9-k51" secondAttribute="leading" id="9v0-ux-gym"/>
+                            <constraint firstItem="uzb-y2-fWw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="135" id="CZe-Rw-Cub"/>
+                            <constraint firstItem="spn-b9-k51" firstAttribute="trailing" secondItem="LYo-De-UZm" secondAttribute="trailing" id="IT7-rY-Mfc"/>
+                            <constraint firstItem="Sfx-HP-0w9" firstAttribute="top" secondItem="U1o-an-YKV" secondAttribute="bottom" constant="8" symbolic="YES" id="LOy-1O-jsa"/>
+                            <constraint firstItem="U1o-an-YKV" firstAttribute="top" secondItem="uzb-y2-fWw" secondAttribute="bottom" constant="10" id="SZK-Hy-tb9"/>
+                            <constraint firstItem="spn-b9-k51" firstAttribute="leading" secondItem="LYo-De-UZm" secondAttribute="leading" id="UJ5-sx-hcF"/>
+                            <constraint firstItem="Sfx-HP-0w9" firstAttribute="trailing" secondItem="LYo-De-UZm" secondAttribute="trailing" id="UiK-d6-8oL"/>
+                            <constraint firstItem="bsh-XQ-rEq" firstAttribute="trailing" secondItem="spn-b9-k51" secondAttribute="trailing" id="ah7-l0-dCo"/>
+                            <constraint firstItem="U1o-an-YKV" firstAttribute="leading" secondItem="Sfx-HP-0w9" secondAttribute="leading" id="hRU-Kf-awr"/>
+                            <constraint firstItem="LYo-De-UZm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="rIu-Qe-p67"/>
+                            <constraint firstItem="spn-b9-k51" firstAttribute="top" secondItem="LYo-De-UZm" secondAttribute="bottom" constant="8" symbolic="YES" id="sJ6-fj-uN3"/>
+                            <constraint firstItem="LYo-De-UZm" firstAttribute="top" secondItem="Sfx-HP-0w9" secondAttribute="bottom" constant="8" symbolic="YES" id="sdG-XG-stD"/>
+                            <constraint firstItem="Sfx-HP-0w9" firstAttribute="leading" secondItem="LYo-De-UZm" secondAttribute="leading" id="wN6-4w-utY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uzb-y2-fWw"/>
+                                <exclude reference="U1o-an-YKV"/>
+                                <exclude reference="Sfx-HP-0w9"/>
+                                <exclude reference="LYo-De-UZm"/>
+                                <exclude reference="spn-b9-k51"/>
+                                <exclude reference="bsh-XQ-rEq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0cZ-xo-seJ"/>
+                                <exclude reference="SZK-Hy-tb9"/>
+                                <exclude reference="hRU-Kf-awr"/>
+                                <exclude reference="0YQ-WC-uOg"/>
+                                <exclude reference="CZe-Rw-Cub"/>
+                                <exclude reference="7Lj-vP-piT"/>
+                                <exclude reference="LOy-1O-jsa"/>
+                                <exclude reference="UiK-d6-8oL"/>
+                                <exclude reference="wN6-4w-utY"/>
+                                <exclude reference="rIu-Qe-p67"/>
+                                <exclude reference="sdG-XG-stD"/>
+                                <exclude reference="IT7-rY-Mfc"/>
+                                <exclude reference="UJ5-sx-hcF"/>
+                                <exclude reference="sJ6-fj-uN3"/>
+                                <exclude reference="15H-pL-GkF"/>
+                                <exclude reference="9v0-ux-gym"/>
+                                <exclude reference="ah7-l0-dCo"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uzb-y2-fWw"/>
+                                <include reference="U1o-an-YKV"/>
+                                <include reference="Sfx-HP-0w9"/>
+                                <include reference="LYo-De-UZm"/>
+                                <include reference="spn-b9-k51"/>
+                                <include reference="bsh-XQ-rEq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0cZ-xo-seJ"/>
+                                <include reference="SZK-Hy-tb9"/>
+                                <include reference="hRU-Kf-awr"/>
+                                <include reference="0YQ-WC-uOg"/>
+                                <include reference="CZe-Rw-Cub"/>
+                                <include reference="7Lj-vP-piT"/>
+                                <include reference="LOy-1O-jsa"/>
+                                <include reference="UiK-d6-8oL"/>
+                                <include reference="wN6-4w-utY"/>
+                                <include reference="rIu-Qe-p67"/>
+                                <include reference="sdG-XG-stD"/>
+                                <include reference="IT7-rY-Mfc"/>
+                                <include reference="UJ5-sx-hcF"/>
+                                <include reference="sJ6-fj-uN3"/>
+                                <include reference="15H-pL-GkF"/>
+                                <include reference="9v0-ux-gym"/>
+                                <include reference="ah7-l0-dCo"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
