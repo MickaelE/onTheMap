@@ -1,0 +1,4 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "022851fa769f74b2b7b77909dbdb865f"
+inputs: 
+- "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMapTests/onTheMapTests.swift"

@@ -1,0 +1,5 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "e3b849696010380231cf4071dfe4216f"
+inputs: 
+- "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/ViewController.swift"
+- "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/AppDelegate.swift"
