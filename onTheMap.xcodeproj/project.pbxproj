@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2569B6791B7B311B00FFAD2B /* UDYConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08A571B72001300C39050 /* UDYConvenience.swift */; };
 		25AEB3B21B70F234004DE172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3B11B70F234004DE172 /* AppDelegate.swift */; };
-		25AEB3B41B70F234004DE172 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3B31B70F234004DE172 /* ViewController.swift */; };
+		25AEB3B41B70F234004DE172 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3B31B70F234004DE172 /* LoginViewController.swift */; };
 		25AEB3B71B70F234004DE172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3B51B70F234004DE172 /* Main.storyboard */; };
 		25AEB3B91B70F234004DE172 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3B81B70F234004DE172 /* Images.xcassets */; };
 		25AEB3BC1B70F234004DE172 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3BA1B70F234004DE172 /* LaunchScreen.xib */; };
 		25AEB3C81B70F235004DE172 /* onTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3C71B70F235004DE172 /* onTheMapTests.swift */; };
 		25C08A4F1B71F20200C39050 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C08A4E1B71F20200C39050 /* MapKit.framework */; };
+		25C08A541B71F74B00C39050 /* UDYConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08A531B71F74B00C39050 /* UDYConstants.swift */; };
+		25C08A561B71F84200C39050 /* UDYClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08A551B71F84200C39050 /* UDYClient.swift */; };
+		25C08A5A1B72217C00C39050 /* UDYlogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08A591B72217C00C39050 /* UDYlogin.swift */; };
+		25D44E411B788459007AFEB9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D44E401B788459007AFEB9 /* FBSDKCoreKit.framework */; };
+		25D44E441B78878C007AFEB9 /* FSBKClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D44E431B78878C007AFEB9 /* FSBKClient.swift */; };
+		25D44E461B788816007AFEB9 /* FSBKConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D44E451B788816007AFEB9 /* FSBKConstants.swift */; };
+		25D44E491B788EB3007AFEB9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D44E481B788EB3007AFEB9 /* FBSDKLoginKit.framework */; };
+		25D44E4B1B7891A9007AFEB9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D44E4A1B7891A9007AFEB9 /* Bolts.framework */; };
+		25D44E4E1B78D194007AFEB9 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D44E4D1B78D194007AFEB9 /* MapNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +40,7 @@
 		25AEB3AC1B70F234004DE172 /* onTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AEB3B01B70F234004DE172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AEB3B11B70F234004DE172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25AEB3B31B70F234004DE172 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		25AEB3B31B70F234004DE172 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25AEB3B61B70F234004DE172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25AEB3B81B70F234004DE172 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25AEB3BB1B70F234004DE172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -38,6 +48,16 @@
 		25AEB3C61B70F235004DE172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AEB3C71B70F235004DE172 /* onTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onTheMapTests.swift; sourceTree = "<group>"; };
 		25C08A4E1B71F20200C39050 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		25C08A531B71F74B00C39050 /* UDYConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDYConstants.swift; sourceTree = "<group>"; };
+		25C08A551B71F84200C39050 /* UDYClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDYClient.swift; sourceTree = "<group>"; };
+		25C08A571B72001300C39050 /* UDYConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDYConvenience.swift; sourceTree = "<group>"; };
+		25C08A591B72217C00C39050 /* UDYlogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDYlogin.swift; sourceTree = "<group>"; };
+		25D44E401B788459007AFEB9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		25D44E431B78878C007AFEB9 /* FSBKClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSBKClient.swift; sourceTree = "<group>"; };
+		25D44E451B788816007AFEB9 /* FSBKConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSBKConstants.swift; sourceTree = "<group>"; };
+		25D44E481B788EB3007AFEB9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		25D44E4A1B7891A9007AFEB9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		25D44E4D1B78D194007AFEB9 /* MapNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D44E4B1B7891A9007AFEB9 /* Bolts.framework in Frameworks */,
+				25D44E491B788EB3007AFEB9 /* FBSDKLoginKit.framework in Frameworks */,
+				25D44E411B788459007AFEB9 /* FBSDKCoreKit.framework in Frameworks */,
 				25C08A4F1B71F20200C39050 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +85,9 @@
 		25AEB3A31B70F234004DE172 = {
 			isa = PBXGroup;
 			children = (
+				25D44E4A1B7891A9007AFEB9 /* Bolts.framework */,
+				25D44E481B788EB3007AFEB9 /* FBSDKLoginKit.framework */,
+				25D44E401B788459007AFEB9 /* FBSDKCoreKit.framework */,
 				25C08A4E1B71F20200C39050 /* MapKit.framework */,
 				25AEB3AE1B70F234004DE172 /* onTheMap */,
 				25AEB3C41B70F235004DE172 /* onTheMapTests */,
@@ -81,9 +107,12 @@
 		25AEB3AE1B70F234004DE172 /* onTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				25D44E421B788760007AFEB9 /* Fsbk */,
+				25C08A521B71F72200C39050 /* UDY */,
 				25AEB3B11B70F234004DE172 /* AppDelegate.swift */,
-				25AEB3B31B70F234004DE172 /* ViewController.swift */,
+				25AEB3B31B70F234004DE172 /* LoginViewController.swift */,
 				25AEB3B51B70F234004DE172 /* Main.storyboard */,
+				25D44E4D1B78D194007AFEB9 /* MapNavigationController.swift */,
 				25AEB3B81B70F234004DE172 /* Images.xcassets */,
 				25AEB3BA1B70F234004DE172 /* LaunchScreen.xib */,
 				25AEB3AF1B70F234004DE172 /* Supporting Files */,
@@ -114,6 +143,26 @@
 				25AEB3C61B70F235004DE172 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25C08A521B71F72200C39050 /* UDY */ = {
+			isa = PBXGroup;
+			children = (
+				25C08A531B71F74B00C39050 /* UDYConstants.swift */,
+				25C08A551B71F84200C39050 /* UDYClient.swift */,
+				25C08A571B72001300C39050 /* UDYConvenience.swift */,
+				25C08A591B72217C00C39050 /* UDYlogin.swift */,
+			);
+			name = UDY;
+			sourceTree = "<group>";
+		};
+		25D44E421B788760007AFEB9 /* Fsbk */ = {
+			isa = PBXGroup;
+			children = (
+				25D44E431B78878C007AFEB9 /* FSBKClient.swift */,
+				25D44E451B788816007AFEB9 /* FSBKConstants.swift */,
+			);
+			name = Fsbk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +265,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25AEB3B41B70F234004DE172 /* ViewController.swift in Sources */,
+				25AEB3B41B70F234004DE172 /* LoginViewController.swift in Sources */,
+				25D44E461B788816007AFEB9 /* FSBKConstants.swift in Sources */,
+				2569B6791B7B311B00FFAD2B /* UDYConvenience.swift in Sources */,
 				25AEB3B21B70F234004DE172 /* AppDelegate.swift in Sources */,
+				25C08A5A1B72217C00C39050 /* UDYlogin.swift in Sources */,
+				25D44E441B78878C007AFEB9 /* FSBKClient.swift in Sources */,
+				25D44E4E1B78D194007AFEB9 /* MapNavigationController.swift in Sources */,
+				25C08A541B71F74B00C39050 /* UDYConstants.swift in Sources */,
+				25C08A561B71F84200C39050 /* UDYClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +355,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -336,6 +394,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -344,9 +404,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ldc-mee/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = onTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -354,9 +420,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ldc-mee/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = onTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

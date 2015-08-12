@@ -4,21 +4,21 @@ provides:
 nominals:
 - "C13onTheMapTests13onTheMapTests"
 class-members:
-- "tearDown"
+- "testExample"
 - "setUp"
 - "testPerformanceExample"
-- "testExample"
+- "tearDown"
 top-level:
-- !private "XCTAssert"
-- "XCTestCase"
 - !private "StringLiteralType"
+- "XCTestCase"
+- !private "XCTAssert"
 - !private "BooleanLiteralType"
 member-access:
-- !private "C13onTheMapTests13onTheMapTests"
-- "CSo10XCTestCase"
-- "CSo6XCTest"
 - "PSs9AnyObject"
 - "CSo8NSObject"
+- "CSo10XCTestCase"
+- "CSo6XCTest"
+- !private "C13onTheMapTests13onTheMapTests"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

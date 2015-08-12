@@ -84,6 +84,8 @@ typedef struct _NSZone NSZone;
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import ObjectiveC;
+@import FBSDKLoginKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -91,6 +93,7 @@ typedef struct _NSZone NSZone;
 @class UIWindow;
 @class UIApplication;
 @class NSObject;
+@class NSURL;
 
 SWIFT_CLASS("_TtC8onTheMap11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -101,18 +104,84 @@ SWIFT_CLASS("_TtC8onTheMap11AppDelegate")
 - (void)applicationWillEnterForeground:(UIApplication * __nonnull)application;
 - (void)applicationDidBecomeActive:(UIApplication * __nonnull)application;
 - (void)applicationWillTerminate:(UIApplication * __nonnull)application;
+- (BOOL)application:(UIApplication * __nonnull)application openURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nullable)sourceApplication annotation:(id __nullable)annotation;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC8onTheMap10FSBKClient")
+@interface FSBKClient : NSObject
+- (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface FSBKClient (SWIFT_EXTENSION(onTheMap))
+@end
+
+@class FBSDKLoginButton;
+@class FBSDKLoginManagerLoginResult;
+@class NSError;
+@class UIWebView;
+@class NSURLRequest;
+@class UITextField;
 @class NSBundle;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC8onTheMap14ViewController")
-@interface ViewController : UIViewController
+SWIFT_CLASS("_TtC8onTheMap19LoginViewController")
+@interface LoginViewController : UIViewController <UIWebViewDelegate, FBSDKLoginButtonDelegate>
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified emailText;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified passwordText;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (void)loginButton:(FBSDKLoginButton * __null_unspecified)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult * __null_unspecified)result error:(NSError * __null_unspecified)error;
+- (void)loginButtonDidLogOut:(FBSDKLoginButton * __null_unspecified)loginButton;
+- (IBAction)signUpLink:(id __nonnull)sender;
+- (IBAction)faceBookLogin:(id __nonnull)sender;
+- (IBAction)touchUpLogin:(id __nonnull)sender;
+- (void)completeLogin;
+- (void)displayError:(NSString * __nullable)errorString;
+- (void)webView:(UIWebView * __nonnull)webView didFailLoadWithError:(NSError * __nonnull)error;
+- (BOOL)webView:(UIWebView * __nonnull)webView shouldStartLoadWithRequest:(NSURLRequest * __nonnull)request navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView * __nonnull)webView;
+- (void)webViewDidFinishLoad:(UIWebView * __nonnull)webView;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8onTheMap23MapNavigationController")
+@interface MapNavigationController : UITabBarController
+- (void)viewDidLoad;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSURLSession;
+@class NSURLSessionDataTask;
+@class NSData;
+@class NSURLResponse;
+
+SWIFT_CLASS("_TtC8onTheMap9UDYClient")
+@interface UDYClient : NSObject
+@property (nonatomic) NSURLSession * __nonnull session;
+@property (nonatomic, copy) NSString * __nullable sessionID;
+- (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (NSURLSessionDataTask * __nonnull)taskForPOSTMethod:(NSString * __nonnull)method parameters:(NSDictionary * __nonnull)parameters jsonBody:(NSDictionary * __nonnull)jsonBody completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
+- (NSURLSessionDataTask * __nonnull)taskForGETMethod:(NSString * __nonnull)method parameters:(NSDictionary * __nonnull)parameters completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
++ (NSString * __nonnull)escapedParameters:(NSDictionary * __nonnull)parameters;
++ (NSError * __nonnull)errorForData:(NSData * __nullable)data response:(NSURLResponse * __nullable)response error:(NSError * __nonnull)error;
++ (void)parseJSONWithCompletionHandler:(NSData * __nonnull)data completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
++ (UDYClient * __nonnull)sharedInstance;
++ (NSString * __nullable)subtituteKeyInMethod:(NSString * __nonnull)method key:(NSString * __nonnull)key value:(NSString * __nonnull)value;
+@end
+
+
+@interface UDYClient (SWIFT_EXTENSION(onTheMap))
+- (void)authenticateWithViewController:(UIViewController * __nonnull)hostViewController completionHandler:(void (^ __nonnull)(BOOL, NSString * __nullable))completionHandler;
+@end
+
+
+@interface UDYClient (SWIFT_EXTENSION(onTheMap))
 @end
 
 #pragma clang diagnostic pop
