@@ -85,6 +85,8 @@ typedef struct _NSZone NSZone;
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import ObjectiveC;
+@import MapKit;
+@import CoreLocation;
 @import FBSDKLoginKit;
 #endif
 
@@ -106,6 +108,18 @@ SWIFT_CLASS("_TtC8onTheMap11AppDelegate")
 - (void)applicationWillTerminate:(UIApplication * __nonnull)application;
 - (BOOL)application:(UIApplication * __nonnull)application openURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nullable)sourceApplication annotation:(id __nullable)annotation;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MKAnnotationView;
+
+SWIFT_CLASS("_TtC8onTheMap16CustomAnnotation")
+@interface CustomAnnotation : NSObject <MKAnnotation>
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString * __nonnull title;
+@property (nonatomic, copy) NSString * __nonnull subtitle;
+@property (nonatomic) NSURL * __nonnull detailURL;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString * __nonnull)title subtitle:(NSString * __nonnull)subtitle detailURL:(NSURL * __nonnull)detailURL OBJC_DESIGNATED_INITIALIZER;
+- (MKAnnotationView * __nonnull)annotationView;
 @end
 
 
@@ -156,6 +170,23 @@ SWIFT_CLASS("_TtC8onTheMap23MapNavigationController")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class MKMapView;
+
+SWIFT_CLASS("_TtC8onTheMap17MapViewController")
+@interface MapViewController : UIViewController <MKMapViewDelegate>
+@property (nonatomic, weak) IBOutlet MKMapView * __null_unspecified mapView;
+- (void)viewDidLoad;
+- (void)addLocations:(double)lat long:(double)long title:(NSString * __nonnull)title;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8onTheMap11ParseClient")
+@interface ParseClient : NSObject
+- (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSURLSession;
 @class NSURLSessionDataTask;
 @class NSData;
@@ -168,6 +199,8 @@ SWIFT_CLASS("_TtC8onTheMap9UDYClient")
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (NSURLSessionDataTask * __nonnull)taskForPOSTMethod:(NSString * __nonnull)method parameters:(NSDictionary * __nonnull)parameters jsonBody:(NSDictionary * __nonnull)jsonBody completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
 - (NSURLSessionDataTask * __nonnull)taskForGETMethod:(NSString * __nonnull)method parameters:(NSDictionary * __nonnull)parameters completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
+- (NSURLSessionDataTask * __nonnull)taskForGETMutableMethod:(NSString * __nonnull)method parameters:(NSDictionary * __nonnull)parameters completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
++ (NSString * __nonnull)createURL:(NSString * __nonnull)method;
 + (NSString * __nonnull)escapedParameters:(NSDictionary * __nonnull)parameters;
 + (NSError * __nonnull)errorForData:(NSData * __nullable)data response:(NSURLResponse * __nullable)response error:(NSError * __nonnull)error;
 + (void)parseJSONWithCompletionHandler:(NSData * __nonnull)data completionHandler:(void (^ __nonnull)(id __null_unspecified, NSError * __nullable))completionHandler;
@@ -177,7 +210,15 @@ SWIFT_CLASS("_TtC8onTheMap9UDYClient")
 
 
 @interface UDYClient (SWIFT_EXTENSION(onTheMap))
+@end
+
+
+@interface UDYClient (SWIFT_EXTENSION(onTheMap))
 - (void)authenticateWithViewController:(UIViewController * __nonnull)hostViewController completionHandler:(void (^ __nonnull)(BOOL, NSString * __nullable))completionHandler;
+@end
+
+
+@interface UDYClient (SWIFT_EXTENSION(onTheMap))
 @end
 
 

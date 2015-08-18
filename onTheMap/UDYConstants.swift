@@ -47,6 +47,7 @@ struct Constants {
         // Account
         static let Session = "session"
         static let Data = "users/{id}"
+        static let Parse = "Parse"
            }
 
     struct ParameterKeys {
@@ -67,6 +68,7 @@ struct Constants {
     
     struct URLKeys {
         static let UserID = "id"
+         static let SessonID = "SessionID"
     }
 
 }

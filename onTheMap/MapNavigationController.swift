@@ -9,16 +9,12 @@
 import Foundation
 import UIKit
 
-class MapNavigationController: UITabBarController {
+class MapNavigationController: UITabBarController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         var retval = "test"
-       UDYClient.sharedInstance().getPublicUserData(retval){ (data, errorString) in
-            if data != nil{
-              println(retval)
-            } else {
-                println("error")
-            }
-        }
+      
     }
+    
+    
 }

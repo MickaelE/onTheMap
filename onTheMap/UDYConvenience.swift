@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 extension UDYClient {
-    
+    /*
+    Function to handle login to app from udacity.
+    */
     func authenticateWithViewController(hostViewController: UIViewController, completionHandler: (success: Bool, errorString: String?) -> Void) {
         self.getSessionID(cred)
             { (result, errorString) in
@@ -23,20 +25,17 @@ extension UDYClient {
         }
     }
     
-    /*Login to Udacity direct.*/
+    /*
+    Function to get a sessionID from Udacity. EG. login.
+    */
     func getSessionID(credetials: UDYCredetials, completionHandler: (result: String?, error: NSError?) -> Void) {
-        
-        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [String: AnyObject]()
         var mutableMethod : String = Methods.Session
         let jsonBody : [String:AnyObject] = [ UDYClient.JSONBodyKeys.udacity: [
             UDYClient.JSONBodyKeys.username: credetials.email   ,
             UDYClient.JSONBodyKeys.passWord: credetials.passWord
         ]]
-        
-        /* 2. Make the request */
         let task = taskForPOSTMethod(mutableMethod, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
-            /* 3. Send the desired value(s) to completion handler */
             if let error = error {
                 completionHandler(result: nil, error: error)
             } else {
@@ -51,24 +50,25 @@ extension UDYClient {
         }
     }
     
-    /* Get data from UDACITYS webservice*/
-    func getPublicUserData(seessionID: String, completionHandler: (data: [UDYdata]?, error: NSError?) -> Void) {
+    /* 
+    Get userdata from UDACITYS webservice
+    */
+    func getPublicUserData(seessionID: String, completionHandler: (data: UDYUserData?, error: NSError?) -> Void) {
         
         let parameters = [String: AnyObject]()
         var mutableMethod : String = Methods.Data
-        
+
         mutableMethod = UDYClient.subtituteKeyInMethod(mutableMethod, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
         
-        /* 2. Make the request */
         taskForGETMethod(Methods.Data, parameters: parameters) { JSONResult, error in
             
-            /* 3. Send the desired value(s) to completion handler */
             if let error = error {
                 completionHandler(data: nil, error: NSError(domain: "Udacity data parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse Udacity data"]))
             } else {
-                if let results = JSONResult.valueForKey("user") as? [[String : AnyObject]] {
-                      var newData = UDYdata.dataFromResults(results)
-                    completionHandler(data: newData,  error: nil)
+               // println(JSONResult)
+                if let results = JSONResult.valueForKey("user") as? NSDictionary {
+                    var newData = UDYUserData(dictionary: results)
+                      completionHandler(data: newData,  error: nil)
                 } else {
                     completionHandler(data: nil , error: NSError(domain: "Udacity data parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse Udactiy data"]))
                 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -183,7 +183,7 @@
         <!--On The Map-->
         <scene sceneID="7iE-he-gun">
             <objects>
-                <viewController title="On The Map" id="0Mf-4V-igX" sceneMemberID="viewController">
+                <viewController title="On The Map" id="0Mf-4V-igX" customClass="MapViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6SO-Ma-hhX"/>
                         <viewControllerLayoutGuide type="bottom" id="Egf-dQ-hMW"/>
@@ -212,6 +212,9 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="s1Q-Xh-T1F"/>
+                    <connections>
+                        <outlet property="mapView" destination="n3X-eo-Cq4" id="eJY-Cf-udV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEO-dP-2Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

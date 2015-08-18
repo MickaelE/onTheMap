@@ -6,22 +6,14 @@ nominals:
 class-members:
 - "viewDidLoad"
 top-level:
-- !private "!="
-- !private "println"
-- !private "UDYClient"
-- !private "StringLiteralType"
 - "UITabBarController"
+- !private "StringLiteralType"
 member-access:
 - "CSo18UITabBarController"
-- "CSo11UIResponder"
-- !private "Sb"
+- "CSo16UIViewController"
 - "PSs9AnyObject"
 - "CSo8NSObject"
-- !private "Sq"
-- !private "C8onTheMap9UDYClient"
-- "CSo16UIViewController"
-- !private "Sa"
-- !private "C8onTheMap23MapNavigationController"
+- "CSo11UIResponder"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

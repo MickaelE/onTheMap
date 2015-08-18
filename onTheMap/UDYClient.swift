@@ -19,13 +19,14 @@ class UDYClient : NSObject {
         session = NSURLSession.sharedSession()
         super.init()
     }
+    /*
+    This function get response from webservice by first post an json message.
+    */
     
     func taskForPOSTMethod(method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-        //Parameters
         var mutableParameters = parameters
         
-        //Build and configure.
         let urlString = Constants.BaseURLSecure + method + UDYClient.escapedParameters(mutableParameters)
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
@@ -34,78 +35,121 @@ class UDYClient : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
-        /* 4. Make the request */
+    
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
             
-            /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
                 let newError = UDYClient.errorForData(data, response: response, error: error)
                 completionHandler(result: nil, error: downloadError)
             } else {
                 let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
-                UDYClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+               // println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+                UDYClient.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
             }
         }
        
-        /* 7. Start the request */
         task.resume()
         
         return task
     }
     
+    /*
+    This function get response from webservice by GET method.
+    */
     func taskForGETMethod(method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-        /* 1. Set the parameters */
         var mutableParameters = parameters
         
-        var mutableMethod : String = method
-        mutableMethod = UDYClient.subtituteKeyInMethod(mutableMethod, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
+        //var mutableMethod : String = method
+       // mutableMethod = UDYClient.subtituteKeyInMethod(mutableMethod, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
         
-
-        /* 2/3. Build the URL and configure the request */
-        let urlString = Constants.BaseURLSecure + mutableMethod + UDYClient.escapedParameters(mutableParameters)
+        let urlString = UDYClient.createURL(method) + UDYClient.escapedParameters(mutableParameters)
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
-        /* 4. Make the request */
+        
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
             
-            /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
                 let newError = UDYClient.errorForData(data, response: response, error: error)
                 completionHandler(result: nil, error: downloadError)
             } else {
                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
-               println(NSString(data: data, encoding: NSUTF8StringEncoding))
-                UDYClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+               //println(NSString(data: newData, encoding: NSUTF8StringEncoding))
+                UDYClient.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
             }
         }
         
-        /* 7. Start the request */
         task.resume()
         
         return task
     }
     
+    func taskForGETMutableMethod(method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        var mutableParameters = parameters
+        
+        //var mutableMethod : String = method
+        // mutableMethod = UDYClient.subtituteKeyInMethod(mutableMethod, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
+        
+        let urlString = UDYClient.createURL(method) + UDYClient.escapedParameters(mutableParameters)
+        let url = NSURL(string: urlString)!
+        let request = NSMutableURLRequest(URL: url)
+       // if method == UDYClient.Methods.Parse{
+            request.addValue(ParseConstants.ParseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+            request.addValue(ParseConstants.RestApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+       // }
+        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+            
+            if let error = downloadError {
+                let newError = UDYClient.errorForData(data, response: response, error: error)
+                completionHandler(result: nil, error: downloadError)
+            } else {
+              // println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                UDYClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+            }
+        }
+        
+        task.resume()
+        
+        return task
+    }
+
+    class func createURL(method: String)->String {
+        var retVal = ""
+        
+        switch method {
+        case  UDYClient.Methods.Session:
+           retVal =  Constants.BaseURLSecure + method
+        case UDYClient.Methods.Data:
+            retVal = Constants.BaseURLSecure + UDYClient.subtituteKeyInMethod(method, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
+        case UDYClient.Methods.Parse:
+            retVal = ParseConstants.BaseURLSecure
+        default:
+            retVal = ""
+        }
+        return(retVal)
+    }
+    /*
+    This function will take an dictionary and make an string with  escaped text,
+    */
     class func escapedParameters(parameters: [String : AnyObject]) -> String {
         
         var urlVars = [String]()
         
         for (key, value) in parameters {
             
-            /* Make sure that it is a string value */
             let stringValue = "\(value)"
             
-            /* Escape it */
             let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
             
-            /* Append it */
             urlVars += [key + "=" + "\(escapedValue!)"]
-            
         }
-        
         return (!urlVars.isEmpty ? "?" : "") + join("&", urlVars)
     }
     
+    /*
+    Fucntion to return a good error message.
+    */
     class func errorForData(data: NSData?, response: NSURLResponse?, error: NSError) -> NSError {
         
         if let parsedResult = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as? [String : AnyObject] {
@@ -121,20 +165,27 @@ class UDYClient : NSObject {
         return error
     }
     
+    /*
+    Handle parse Json response.
+    */
     class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
         
         var parsingError: NSError? = nil
         
         let parsedResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
-  //      println("data from JSON =%@", data)
 
         if let error = parsingError {
+            println("Error from JSON =%@", error)
             completionHandler(result: nil, error: error)
         } else {
             completionHandler(result: parsedResult, error: nil)
         }
     }
     
+    
+    /*
+    Creates an memmory instance.
+    */
     class func sharedInstance() -> UDYClient {
         
         struct Singleton {
@@ -144,6 +195,9 @@ class UDYClient : NSObject {
         return Singleton.sharedInstance
     }
     
+    /*
+    Replaces a word with anohther in string.
+    */
     class func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
         if method.rangeOfString("{\(key)}") != nil {
             return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
