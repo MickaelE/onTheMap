@@ -53,7 +53,7 @@ extension UDYClient {
     /* 
     Get userdata from UDACITYS webservice
     */
-    func getPublicUserData(seessionID: String, completionHandler: (data: UDYUserData?, error: NSError?) -> Void) {
+    func getPublicUserData(sessionID: String, completionHandler: (data: UDYUserData?, error: NSError?) -> Void) {
         
         let parameters = [String: AnyObject]()
         var mutableMethod : String = Methods.Data

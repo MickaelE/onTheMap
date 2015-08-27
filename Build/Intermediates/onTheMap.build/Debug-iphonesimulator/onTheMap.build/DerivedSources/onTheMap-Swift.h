@@ -85,9 +85,8 @@ typedef struct _NSZone NSZone;
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import ObjectiveC;
-@import MapKit;
-@import CoreLocation;
 @import FBSDKLoginKit;
+@import MapKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -108,18 +107,6 @@ SWIFT_CLASS("_TtC8onTheMap11AppDelegate")
 - (void)applicationWillTerminate:(UIApplication * __nonnull)application;
 - (BOOL)application:(UIApplication * __nonnull)application openURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nullable)sourceApplication annotation:(id __nullable)annotation;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MKAnnotationView;
-
-SWIFT_CLASS("_TtC8onTheMap16CustomAnnotation")
-@interface CustomAnnotation : NSObject <MKAnnotation>
-@property (nonatomic) CLLocationCoordinate2D coordinate;
-@property (nonatomic, copy) NSString * __nonnull title;
-@property (nonatomic, copy) NSString * __nonnull subtitle;
-@property (nonatomic) NSURL * __nonnull detailURL;
-- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString * __nonnull)title subtitle:(NSString * __nonnull)subtitle detailURL:(NSURL * __nonnull)detailURL OBJC_DESIGNATED_INITIALIZER;
-- (MKAnnotationView * __nonnull)annotationView;
 @end
 
 
@@ -210,6 +197,7 @@ SWIFT_CLASS("_TtC8onTheMap9UDYClient")
 
 
 @interface UDYClient (SWIFT_EXTENSION(onTheMap))
+- (void)setStudentLoction:(void (^ __nonnull)(NSString * __nullable, NSError * __nullable))completionHandler;
 @end
 
 

@@ -20,7 +20,7 @@ extension UDYClient {
     struct ParseMethods {
         
         // Account
-        static let Session = "session"
+        static let posting = "posting"
         static let Data = "users/{id}"
     }
     struct ParseJSONResponseKeys{
@@ -36,5 +36,16 @@ extension UDYClient {
         static let updatedAt = "updatedAt"
         
     }
-    
+    struct ParseJSONBodyKeys{
+        static let createdAt = "createdAt"
+        static let firstName = "firstName"
+        static let lastName =  "lastName"
+        static let latitude =  "latitude"
+        static let longitude = "longitude"
+        static let mapString = "mapString"
+        static let mediaURL =  "mediaURL"
+        static let objectId =  "objectId"
+        static let uniqueKey = "uniqueKey"
+        static let updatedAt = "updatedAt"
+    }
 }

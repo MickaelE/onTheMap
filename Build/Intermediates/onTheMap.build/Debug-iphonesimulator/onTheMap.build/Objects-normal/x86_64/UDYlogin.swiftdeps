@@ -8,15 +8,15 @@ nominals:
 class-members:
 top-level:
 - !private "UDYClient"
-- "NSDictionary"
 - "String"
+- "NSDictionary"
 member-access:
-- !private "VC8onTheMap9UDYClient16JSONResponseKeys"
 - !private "CSo12NSDictionary"
 - "V8onTheMap13UDYCredetials"
 - "V8onTheMap11UDYUserData"
 - !private "CSo8NSObject"
 - !private "C8onTheMap9UDYClient"
+- !private "VC8onTheMap9UDYClient16JSONResponseKeys"
 - !private "SS"
 dynamic-lookup:
 cross-module:

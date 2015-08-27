@@ -27,15 +27,19 @@ class UDYClient : NSObject {
         
         var mutableParameters = parameters
         
-        let urlString = Constants.BaseURLSecure + method + UDYClient.escapedParameters(mutableParameters)
+        let urlString =  UDYClient.createURL(method) +  UDYClient.escapedParameters(mutableParameters)
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
         var jsonifyError: NSError? = nil
         request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
-    
+        if method == UDYClient.Methods.post {
+            request.addValue(ParseConstants.ParseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+            request.addValue(ParseConstants.RestApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        } else {
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
+        }
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
             
             if let error = downloadError {
@@ -123,6 +127,8 @@ class UDYClient : NSObject {
         case UDYClient.Methods.Data:
             retVal = Constants.BaseURLSecure + UDYClient.subtituteKeyInMethod(method, key: UDYClient.URLKeys.UserID, value: UDYClient.sharedInstance().sessionID!)!
         case UDYClient.Methods.Parse:
+            retVal = ParseConstants.BaseURLSecure
+        case UDYClient.Methods.post:
             retVal = ParseConstants.BaseURLSecure
         default:
             retVal = ""

@@ -48,6 +48,7 @@ struct Constants {
         static let Session = "session"
         static let Data = "users/{id}"
         static let Parse = "Parse"
+        static let post = "post"
            }
 
     struct ParameterKeys {
