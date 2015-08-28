@@ -10,7 +10,7 @@ inputs:
 - "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/UDYlogin.swift"
 - "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/FSBKClient.swift"
 - "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/ParseClient.swift"
-- !dirty "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/MapNavigationController.swift"
+- "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/MapNavigationController.swift"
 - !dirty "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/MapTableController.swift"
 - "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/ParseConvinience.swift"
 - "/Users/ldc-mee/Dropbox/xcode/Portfolio/onTheMap/onTheMap/UDYConstants.swift"

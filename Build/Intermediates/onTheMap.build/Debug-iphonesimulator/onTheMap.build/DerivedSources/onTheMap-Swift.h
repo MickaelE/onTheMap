@@ -174,6 +174,24 @@ SWIFT_CLASS("_TtC8onTheMap11ParseClient")
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITableView;
+@class NSIndexPath;
+@class UITableViewCell;
+
+SWIFT_CLASS("_TtC8onTheMap19TableViewController")
+@interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic) IBOutlet UITableView * __null_unspecified tableView;
+@property (nonatomic, readonly, copy) NSString * __nonnull textCellIdentifier;
+@property (nonatomic, readonly, copy) NSArray * __nonnull matesList;
+- (void)viewDidLoad;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
+- (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSURLSession;
 @class NSURLSessionDataTask;
 @class NSData;

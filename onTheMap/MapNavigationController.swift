@@ -12,9 +12,5 @@ import UIKit
 class MapNavigationController: UITabBarController  {
     override func viewDidLoad() {
         super.viewDidLoad()
-        var retval = "test"
-      
     }
-    
-    
 }
