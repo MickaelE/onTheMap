@@ -7,17 +7,17 @@ nominals:
 - "V8onTheMap11UDYUserData"
 class-members:
 top-level:
-- !private "UDYClient"
-- "String"
 - "NSDictionary"
+- "String"
+- !private "UDYClient"
 member-access:
+- !private "C8onTheMap9UDYClient"
+- !private "SS"
 - !private "CSo12NSDictionary"
 - "V8onTheMap13UDYCredetials"
 - "V8onTheMap11UDYUserData"
 - !private "CSo8NSObject"
-- !private "C8onTheMap9UDYClient"
 - !private "VC8onTheMap9UDYClient16JSONResponseKeys"
-- !private "SS"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

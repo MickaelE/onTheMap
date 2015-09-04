@@ -10,13 +10,13 @@ nominals:
 - "VC8onTheMap9UDYClient7URLKeys"
 class-members:
 top-level:
+- "UDYClient"
 - "StringLiteralType"
 - "String"
-- "UDYClient"
 member-access:
-- "C8onTheMap9UDYClient"
-- "CSo8NSObject"
 - "VC8onTheMap9UDYClient9Constants"
+- "CSo8NSObject"
+- "C8onTheMap9UDYClient"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

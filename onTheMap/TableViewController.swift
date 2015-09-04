@@ -14,10 +14,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var tableView: UITableView!
     
     let textCellIdentifier = "TextCell"
-    let matesList = [String]()
+    
+    var matesList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }

@@ -13,21 +13,14 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    var locations = [studentLocation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          self.mapView.delegate = self
-        UDYClient.sharedInstance().getStudentLocations{ (data, errorString) in
-            if data != nil{
-                let locations: [studentLocation]  = data!
                 for location in locations {
                     self.addLocations(location.latitude,long: location.longitude, title: location.firstName + " " + location.lastName)
                 }
-                
-            } else {
-                println("error")
-            }
-        }
-        //dispatch_async(dispatch_get_main_queue(), {
            }
     
     func addLocations(lat: Double, long: Double, title: String){

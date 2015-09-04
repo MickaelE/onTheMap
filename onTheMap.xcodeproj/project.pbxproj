@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2569B6791B7B311B00FFAD2B /* UDYConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08A571B72001300C39050 /* UDYConvenience.swift */; };
-		2574EEE31B8F90D60026CF1A /* MapTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574EEE21B8F90D60026CF1A /* MapTableController.swift */; };
+		2574EEE31B8F90D60026CF1A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574EEE21B8F90D60026CF1A /* TableViewController.swift */; };
 		25AEB3B21B70F234004DE172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3B11B70F234004DE172 /* AppDelegate.swift */; };
 		25AEB3B41B70F234004DE172 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB3B31B70F234004DE172 /* LoginViewController.swift */; };
 		25AEB3B71B70F234004DE172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AEB3B51B70F234004DE172 /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2574EEE21B8F90D60026CF1A /* MapTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableController.swift; sourceTree = "<group>"; };
+		2574EEE21B8F90D60026CF1A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		25AEB3AC1B70F234004DE172 /* onTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AEB3B01B70F234004DE172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AEB3B11B70F234004DE172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				25AEB3B11B70F234004DE172 /* AppDelegate.swift */,
 				25AEB3B31B70F234004DE172 /* LoginViewController.swift */,
 				25AEB3B51B70F234004DE172 /* Main.storyboard */,
-				2574EEE21B8F90D60026CF1A /* MapTableController.swift */,
+				2574EEE21B8F90D60026CF1A /* TableViewController.swift */,
 				25B837E71B83481000102098 /* MapViewController.swift */,
 				25D44E4D1B78D194007AFEB9 /* MapNavigationController.swift */,
 				25AEB3B81B70F234004DE172 /* Images.xcassets */,
@@ -301,7 +301,7 @@
 				25D44E441B78878C007AFEB9 /* FSBKClient.swift in Sources */,
 				25FF92681B7DDE2100C654BF /* ParseClient.swift in Sources */,
 				25D44E4E1B78D194007AFEB9 /* MapNavigationController.swift in Sources */,
-				2574EEE31B8F90D60026CF1A /* MapTableController.swift in Sources */,
+				2574EEE31B8F90D60026CF1A /* TableViewController.swift in Sources */,
 				25FF926C1B7DDE9400C654BF /* ParseConvinience.swift in Sources */,
 				25C08A541B71F74B00C39050 /* UDYConstants.swift in Sources */,
 				25C08A561B71F84200C39050 /* UDYClient.swift in Sources */,
